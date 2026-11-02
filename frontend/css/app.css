@@ -83,3 +83,4 @@ body{background:var(--theme-page);color:var(--theme-text)}
 @media(prefers-reduced-motion:reduce){
  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 }
+@media(max-width:600px){.settings-page{min-width:320px}.settings-shell{min-width:0}}
