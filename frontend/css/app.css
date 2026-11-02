@@ -84,3 +84,12 @@ body{background:var(--theme-page);color:var(--theme-text)}
  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 }
 @media(max-width:600px){.settings-page{min-width:320px}.settings-shell{min-width:0}}
+
+/* Unified settings workspace */
+.settings-view{min-width:0;background:transparent;}
+.settings-view .settings-main{width:100%;max-width:1440px;margin:0 auto;padding:22px 26px 32px;}
+.settings-view .settings-nav{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 22px;padding:12px 0;border-bottom:1px solid var(--theme-border);}
+.settings-view .settings-nav a{display:inline-flex;align-items:center;padding:9px 12px;border:1px solid var(--theme-border);border-radius:10px;background:var(--theme-surface);color:var(--theme-muted);font-size:.72rem;text-decoration:none;white-space:nowrap;}
+.settings-view .settings-nav a.active{background:var(--theme-accent-soft);border-color:var(--theme-accent);color:var(--theme-accent-strong);font-weight:700;}
+.settings-view .settings-top{margin-bottom:18px;}
+@media(max-width:720px){.settings-view .settings-main{padding:16px 12px 24px;}.settings-view .settings-nav{overflow-x:auto;flex-wrap:nowrap;padding-bottom:10px;}.settings-view .settings-nav a{flex:0 0 auto;}}
