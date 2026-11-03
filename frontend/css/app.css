@@ -161,11 +161,11 @@ body{
   position:relative;
   isolation:isolate;
   min-width:320px;
-  color:var(--oc-text);
+  color:var(--theme-text,var(--oc-text));
   background:
     radial-gradient(ellipse at 8% 4%,rgba(36,175,255,.12),transparent 34%),
     radial-gradient(ellipse at 92% 16%,rgba(255,165,54,.10),transparent 30%),
-    var(--oc-page);
+    var(--theme-page,var(--oc-page));
   font-family:var(--project-font-family,var(--font-sans));
   font-size:15px;
   line-height:1.65;
@@ -429,4 +429,53 @@ button,a,input,textarea,select{transition:color .2s ease,background-color .2s ea
 }
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;transform:none!important}
+}
+
+/* CSS-drawn system marks: core, scanner, cascade and confirmation. */
+.process-icon{
+  display:grid;
+  place-items:center;
+  position:relative;
+  color:var(--oc-blue);
+  font-size:0;
+  background:var(--oc-blue-soft);
+  border:1px solid #d5eaff;
+}
+.process-icon::before{
+  content:"";
+  width:17px;
+  height:17px;
+  border:2px solid currentColor;
+  border-radius:5px;
+  transform:rotate(45deg);
+  box-shadow:5px -5px 0 -2px var(--oc-blue-soft),5px -5px 0 0 currentColor;
+}
+.process-card:nth-child(2) .process-icon::before{
+  width:4px;
+  height:17px;
+  border:0;
+  border-radius:3px;
+  background:currentColor;
+  transform:none;
+  box-shadow:-7px 4px 0 -1px currentColor,7px -3px 0 -1px currentColor;
+}
+.status-chip.success::before{
+  content:"";
+  display:inline-block;
+  width:8px;
+  height:5px;
+  margin:0 7px 2px 0;
+  border-left:2px solid currentColor;
+  border-bottom:2px solid currentColor;
+  transform:rotate(-45deg);
+}
+.browser-live-card>label::before{
+  content:"";
+  display:inline-block;
+  width:10px;
+  height:10px;
+  margin-right:8px;
+  border:1px solid currentColor;
+  border-radius:50%;
+  box-shadow:inset 0 0 0 2px var(--oc-white),inset 0 0 0 3px currentColor;
 }
