@@ -3,12 +3,18 @@ async function api(url,options={}){const r=await fetch(url,{...options,headers:{
 function setConnection(ok,t){$("#connection").className="connection "+(ok?"online":"offline");$("#connection span").textContent=t}
 function setModel(m){$("#modelName").textContent=m||"Модель не выбрана";$("#monitorModel").textContent=m||"Не выбрана"}
 function applyAppearance(a={}){
- const root=document.documentElement,project=a.project_font_family||"Manrope",chat=a.chat_font_family||project;
- if(a.project_font_data&&a.project_font_name){let style=$("#customProjectFont");if(!style){style=document.createElement("style");style.id="customProjectFont";document.head.append(style)}style.textContent="@font-face{font-family:'OneCoreUploaded';src:url('"+a.project_font_data+"');font-display:swap}";root.style.setProperty("--project-font-family","'OneCoreUploaded',"+project+",sans-serif")}
- else root.style.setProperty("--project-font-family",project+",sans-serif");
- root.style.setProperty("--chat-font-family",chat==="project"?"var(--project-font-family)":chat+",sans-serif");
- root.style.setProperty("--project-font-size",(a.project_font_size||14)+"px");root.style.setProperty("--project-font-color",a.project_font_color||"#30435e");root.style.setProperty("--project-line-height",a.project_line_height||1.5);root.style.setProperty("--project-letter-spacing",(a.project_letter_spacing||0)+"px");
- root.style.setProperty("--chat-font-size",(a.chat_font_size||14)+"px");root.style.setProperty("--chat-font-color",a.chat_font_color||"#30435e");root.style.setProperty("--chat-line-height",a.chat_line_height||1.6);root.style.setProperty("--chat-letter-spacing",(a.chat_letter_spacing||0)+"px");root.dataset.theme=a.theme||"arctic";
+ const root=document.documentElement;
+ root.style.setProperty("--project-font-family","Manrope,sans-serif");
+ root.style.setProperty("--chat-font-family","Manrope,sans-serif");
+ root.style.setProperty("--project-font-size",(a.project_font_size||14)+"px");
+ root.style.setProperty("--project-font-color",a.project_font_color||"#30435e");
+ root.style.setProperty("--project-line-height",a.project_line_height||1.5);
+ root.style.setProperty("--project-letter-spacing",(a.project_letter_spacing||0)+"px");
+ root.style.setProperty("--chat-font-size",(a.chat_font_size||14)+"px");
+ root.style.setProperty("--chat-font-color",a.chat_font_color||"#30435e");
+ root.style.setProperty("--chat-line-height",a.chat_line_height||1.6);
+ root.style.setProperty("--chat-letter-spacing",(a.chat_letter_spacing||0)+"px");
+ root.dataset.theme=a.theme||"arctic";
 }
 function showView(v){
  if(!["workspace","processes","resources","access","settings"].includes(v))return;
